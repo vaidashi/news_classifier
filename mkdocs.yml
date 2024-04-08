@@ -1,0 +1,17 @@
+site_name: My Docs
+nav:
+  - Home: index.md
+  - scripts:
+    - data: scripts/data.md
+    - models: scripts/models.md
+    - train: scripts/train.md
+    - tune: scripts/tune.md
+    - evaluate: scripts/evaluate.md
+    - predict: scripts/predict.md
+    - serve: scripts/serve.md
+    - utils: scripts/utils.md
+theme: readthedocs
+plugins:
+  - mkdocstrings
+watch:
+  - .  # reload docs for any file changes

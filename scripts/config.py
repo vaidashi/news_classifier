@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent.absolute()
 LOGS_DIR = Path(ROOT_DIR, "logs")
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 logging_config = {
     "version": 1,
@@ -51,6 +52,8 @@ logging.config.dictConfig(logging_config)
 logger = logging.getLogger()
 
 # Config MLflow
+EFS_DIR = Path(ROOT_DIR, "efs")
+Path(EFS_DIR).mkdir(parents=True, exist_ok=True)
 MODEL_REGISTRY = Path("/tmp/mlflow")
 Path(MODEL_REGISTRY).mkdir(parents=True, exist_ok=True)
 MLFLOW_TRACKING_URI = "file://" + str(MODEL_REGISTRY.absolute())
